@@ -1,10 +1,10 @@
 # HorizonBoostDrop
 
-HorizonBoostDrop là một plugin Minecraft mạnh mẽ được thiết kế để tăng tỷ lệ rơi vật phẩm từ MythicMobs. Nó cho phép quản trị viên máy chủ cung cấp tỷ lệ tăng cường tạm thời hoặc vĩnh viễn cho người chơi, tăng cơ hội nhận được chiến lợi phẩm có giá trị. Plugin hỗ trợ cả vật phẩm rơi ra từ vanilla và MMOItems, với danh sách đen có thể cấu hình.
+HorizonBoostDrop plugin được code, mục đích là để tăng tỷ lệ số lượng rơi vật phẩm từ MythicMobs. Nó cho phép các Owner Server cung cấp tỷ lệ Boost tạm thời hoặc vĩnh viễn cho người chơi, tăng cơ hội nhận được chiến lợi phẩm có giá trị. Plugin hỗ trợ cả vật phẩm rơi ra từ vanilla và MMOItems, với Blacklist có thể cấu hình.
 
 ## Tính năng
 
--   **Tăng cường rơi vật phẩm có thể cấu hình:** Cấp cho người chơi các đợt tăng cường rơi vật phẩm dựa trên phần trăm tạm thời hoặc vĩnh viễn.
+-   **Boost amount rơi vật phẩm có thể cấu hình:** Cấp cho người chơi các boost số lượng rơi vật phẩm dựa trên phần trăm tạm thời hoặc vĩnh viễn.
 -   **Tích hợp MythicMobs:** Được thiết kế đặc biệt để hoạt động với các vật phẩm rơi ra từ MythicMobs.
 -   **Hỗ trợ MMOItems:** Các đợt tăng cường áp dụng cho vật phẩm rơi ra từ MMOItems, với tùy chọn đưa vào danh sách đen các vật phẩm cụ thể.
 -   **Hỗ trợ vật phẩm Vanilla:** Các đợt tăng cường cũng áp dụng cho vật phẩm rơi ra từ vanilla, với tùy chọn đưa vào danh sách đen các vật phẩm cụ thể.
