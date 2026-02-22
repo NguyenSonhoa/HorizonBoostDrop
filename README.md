@@ -1,107 +1,107 @@
 # HorizonBoostDrop
 
-HorizonBoostDrop plugin được code, mục đích là để tăng tỷ lệ số lượng rơi vật phẩm từ MythicMobs. Nó cho phép các Owner Server cung cấp tỷ lệ Boost tạm thời hoặc vĩnh viễn cho người chơi, tăng cơ hội nhận được chiến lợi phẩm có giá trị. Plugin hỗ trợ cả vật phẩm rơi ra từ vanilla và MMOItems, với Blacklist có thể cấu hình.
+The HorizonBoostDrop plugin is designed to increase the drop rate of items from MythicMobs. It allows server owners to provide temporary or permanent boost rates to players, increasing their chances of obtaining valuable loot. The plugin supports both vanilla and MMOItems drops, with a configurable blacklist.
 
-## Tính năng
+## Features
 
--   **Boost amount rơi vật phẩm có thể cấu hình:** Cấp cho người chơi các boost số lượng rơi vật phẩm dựa trên phần trăm tạm thời hoặc vĩnh viễn.
--   **Tích hợp MythicMobs:** Được thiết kế đặc biệt để hoạt động với các vật phẩm rơi ra từ MythicMobs.
--   **Hỗ trợ MMOItems:** Các đợt tăng cường áp dụng cho vật phẩm rơi ra từ MMOItems, với tùy chọn đưa vào danh sách đen các vật phẩm cụ thể.
--   **Hỗ trợ vật phẩm Vanilla:** Các đợt tăng cường cũng áp dụng cho vật phẩm rơi ra từ vanilla, với tùy chọn đưa vào danh sách đen các vật phẩm cụ thể.
--   **Tăng cường dựa trên quyền hạn:** Người chơi có thể nhận được các đợt tăng cường bổ sung dựa trên quyền hạn của họ.
--   **Hệ thống lệnh linh hoạt:** Các lệnh toàn diện để quản lý các đợt tăng cường (thêm, xóa, xóa tất cả, liệt kê).
--   **Hỗ trợ PlaceholderAPI:** Hiển thị phần trăm tăng cường hiện tại của người chơi bằng cách sử dụng PlaceholderAPI.
--   **Tăng cường liên tục:** Các đợt tăng cường được lưu và tải lại sau khi khởi động lại máy chủ.
--   **Tin nhắn có thể tùy chỉnh:** Tất cả các tin nhắn của plugin có thể được cấu hình thông qua `messages.yml`.
+-   **Configurable Drop Amount Boost:** Grant players temporary or permanent percentage-based boosts to item drop amounts.
+-   **MythicMobs Integration:** Specifically designed to work with drops from MythicMobs.
+-   **MMOItems Support:** Boosts apply to MMOItems drops, with an option to blacklist specific items.
+-   **Vanilla Item Support:** Boosts also apply to vanilla item drops, with an option to blacklist specific items.
+-   **Permission-Based Boosts:** Players can receive additional boosts based on their permissions.
+-   **Flexible Command System:** Comprehensive commands for managing boosts (add, remove, clear, list).
+-   **PlaceholderAPI Support:** Display a player's current boost percentage using PlaceholderAPI.
+-   **Persistent Boosts:** Boosts are saved and reloaded after a server restart.
+-   **Customizable Messages:** All plugin messages can be configured through `messages.yml`.
 
-## Cài đặt
+## Installation
 
-1.  Tải xuống tệp `HorizonBoostDrop.jar`.
-2.  Đặt tệp `HorizonBoostDrop.jar` vào thư mục `plugins/` của máy chủ của bạn.
-3.  (Tùy chọn) Nếu bạn muốn hỗ trợ PlaceholderAPI, hãy đảm bảo PlaceholderAPI cũng được cài đặt.
-4.  Khởi động hoặc khởi động lại máy chủ của bạn.
-5.  Plugin sẽ tạo `config.yml` và `messages.yml` trong `plugins/HorizonBoostDrop/`.
+1.  Download the `HorizonBoostDrop.jar` file.
+2.  Place the `HorizonBoostDrop.jar` file into your server's `plugins/` directory.
+3.  (Optional) If you want PlaceholderAPI support, ensure PlaceholderAPI is also installed.
+4.  Start or restart your server.
+5.  The plugin will generate `config.yml` and `messages.yml` in `plugins/HorizonBoostDrop/`.
 
-## Lệnh
+## Commands
 
-Tất cả các lệnh bắt đầu bằng `/boostdrop` hoặc bí danh của nó (nếu được cấu hình).
+All commands start with `/boostdrop` or its alias (if configured).
 
--   `/boostdrop help`: Hiển thị thông báo trợ giúp của plugin.
--   `/boostdrop <player> <seconds> <percent> [type] [source]`: Cấp một đợt tăng cường rơi vật phẩm tạm thời cho người chơi.
-    -   `<player>`: Tên người chơi mục tiêu.
-    -   `<seconds>`: Thời lượng của đợt tăng cường tính bằng giây.
-    -   `<percent>`: Phần trăm tăng tỷ lệ rơi vật phẩm (ví dụ: `50` cho +50%).
-    -   `[type]`: (Tùy chọn) Loại tăng cường (ví dụ: `COMMAND`, `EVENT`). Mặc định là `COMMAND`.
-    -   `[source]`: (Tùy chọn) Một định danh tùy chỉnh cho đợt tăng cường (ví dụ: "Phần thưởng hàng ngày"). Mặc định là "Được boost từ <sender_name>".
--   `/boostdrop addperm <player> <percent> [type] [source]`: Cấp một đợt tăng cường rơi vật phẩm vĩnh viễn cho người chơi.
-    -   `<player>`: Tên người chơi mục tiêu.
-    -   `<percent>`: Phần trăm tăng tỷ lệ rơi vật phẩm.
-    -   `[type]`: (Tùy chọn) Loại tăng cường. Mặc định là `COMMAND`.
-    -   `[source]`: (Tùy chọn) Một định danh tùy chỉnh cho đợt tăng cường. Mặc định là "Lệnh bởi <sender_name>".
--   `/boostdrop list [player]`: Hiển thị tóm tắt các đợt tăng cường đang hoạt động cho người chơi. Nếu không có người chơi nào được chỉ định, nó sẽ hiển thị các đợt tăng cường của bạn (nếu bạn là người chơi).
--   `/boostdrop remove <player> <source>`: Xóa một đợt tăng cường cụ thể khỏi người chơi dựa trên nguồn của nó.
-    -   `<player>`: Tên người chơi mục tiêu.
-    -   `<source>`: Định danh của đợt tăng cường cần xóa.
--   `/boostdrop clear <player>`: Xóa tất cả các đợt tăng cường đang hoạt động khỏi người chơi.
--   `/boostdrop reload`: Tải lại các tệp cấu hình của plugin (`config.yml` và `messages.yml`) và dữ liệu tăng cường.
+-   `/boostdrop help`: Displays the plugin's help message.
+-   `/boostdrop <player> <seconds> <percent> [type] [source]`: Grants a temporary drop boost to a player.
+    -   `<player>`: The target player's name.
+    -   `<seconds>`: The duration of the boost in seconds.
+    -   `<percent>`: The percentage increase in drop rate (e.g., `50` for +50%).
+    -   `[type]`: (Optional) The type of boost (e.g., `COMMAND`, `EVENT`). Defaults to `COMMAND`.
+    -   `[source]`: (Optional) A custom identifier for the boost (e.g., "Daily Reward"). Defaults to "Boosted by <sender_name>".
+-   `/boostdrop addperm <player> <percent> [type] [source]`: Grants a permanent drop boost to a player.
+    -   `<player>`: The target player's name.
+    -   `<percent>`: The percentage increase in drop rate.
+    -   `[type]`: (Optional) The type of boost. Defaults to `COMMAND`.
+    -   `[source]`: (Optional) A custom identifier for the boost. Defaults to "Command by <sender_name>".
+-   `/boostdrop list [player]`: Displays a summary of active boosts for a player. If no player is specified, it shows your boosts (if you are a player).
+-   `/boostdrop remove <player> <source>`: Removes a specific boost from a player based on its source.
+    -   `<player>`: The target player's name.
+    -   `<source>`: The identifier of the boost to remove.
+-   `/boostdrop clear <player>`: Removes all active boosts from a player.
+-   `/boostdrop reload`: Reloads the plugin's configuration files (`config.yml` and `messages.yml`) and boost data.
 
-## Quyền hạn
+## Permissions
 
--   `horizonboostdrop.admin`: Cho phép truy cập vào tất cả các lệnh quản trị (`/boostdrop addperm`, `/boostdrop remove`, `/boostdrop clear`, `/boostdrop <player> <seconds> <percent>`).
--   `horizonboostdrop.reload`: Cho phép truy cập vào lệnh `/boostdrop reload`.
--   `horizonboostdrop.boost.<percent>`: Cấp một phần trăm tăng cường tĩnh cho người chơi (ví dụ: `horizonboostdrop.boost.10` cho +10% tăng cường). Đợt tăng cường này được thêm vào bất kỳ đợt tăng cường tạm thời/vĩnh viễn nào đang hoạt động.
+-   `horizonboostdrop.admin`: Grants access to all administrative commands (`/boostdrop addperm`, `/boostdrop remove`, `/boostdrop clear`, `/boostdrop <player> <seconds> <percent>`).
+-   `horizonboostdrop.reload`: Grants access to the `/boostdrop reload` command.
+-   `horizonboostdrop.boost.<percent>`: Grants a static boost percentage to a player (e.g., `horizonboostdrop.boost.10` for a +10% boost). This boost is added to any active temporary/permanent boosts.
 
-## Cấu hình (`config.yml`)
+## Configuration (`config.yml`)
 
 ```yaml
-# Cấu hình chính của HorizonBoostDrop
+# Main configuration for HorizonBoostDrop
 
-# Danh sách đen các MMOItems sẽ không được boost
-# Định dạng: <MMOItemType.ID> (ví dụ: SWORD.MYTHIC_SWORD)
+# Blacklist of MMOItems that will not be boosted
+# Format: <MMOItemType.ID> (e.g., SWORD.MYTHIC_SWORD)
 blacklist:
   mmoitems:
     - "SWORD.MYTHIC_SWORD"
     - "ARMOR.LEGENDARY_CHESTPLATE"
-  # Danh sách đen các vật phẩm vanilla sẽ không được boost
-  # Định dạng: <MATERIAL_NAME> (ví dụ: DIAMOND, STONE)
+  # Blacklist of vanilla items that will not be boosted
+  # Format: <MATERIAL_NAME> (e.g., DIAMOND, STONE)
   vanilla:
     - "DIAMOND"
     - "STONE"
 
-# Các cài đặt khác có thể được thêm vào đây trong tương lai
+# Other settings may be added here in the future
 ```
 
-## Cấu hình (`messages.yml`)
+## Configuration (`messages.yml`)
 
-Tệp này chứa tất cả các tin nhắn hiển thị cho người dùng, cho phép tùy chỉnh hoàn toàn.
+This file contains all user-facing messages, allowing for full customization.
 
-Ví dụ:
+Example:
 
 ```yaml
-# Tin nhắn cấu hình cho HorizonBoostDrop
+# Configuration messages for HorizonBoostDrop
 
-no-permission: "&cBạn không có quyền để thực hiện lệnh này."
-player-not-found: "&cKhông tìm thấy người chơi %player%."
-invalid-number: "&cSố không hợp lệ."
-invalid-type: "&cLoại boost không hợp lệ. Các loại hợp lệ: COMMAND, EVENT, PERMISSION."
-reload: "&aĐã tải lại cấu hình và dữ liệu boost thành công!"
+no-permission: "&cYou do not have permission to execute this command."
+player-not-found: "&cPlayer %player% not found."
+invalid-number: "&cInvalid number."
+invalid-type: "&cInvalid boost type. Valid types: COMMAND, EVENT, PERMISSION."
+reload: "&aSuccessfully reloaded configuration and boost data!"
 
 boost-applied:
-  sender: "&aĐã áp dụng boost &e+%percent% &acho &f%player% &aloại &b%type% &athời gian &e%time%."
-  player: "&aBạn đã nhận được boost &e+%percent% &aloại &b%type% &athời gian &e%time%."
-# ... (nhiều tin nhắn khác)
+  sender: "&aApplied &e+%percent% &aboost to &f%player% &aof type &b%type% &afor &e%time%."
+  player: "&aYou have received a &e+%percent% &aboost of type &b%type% &afor &e%time%."
+# ... (many other messages)
 ```
 
-## Hỗ trợ PlaceholderAPI
+## PlaceholderAPI Support
 
-Nếu PlaceholderAPI được cài đặt, bạn có thể sử dụng các placeholder sau:
+If PlaceholderAPI is installed, you can use the following placeholders:
 
--   `%horizonboost_total%`, `%horizonboost_percent%`, `%horizonboost_total_percent%`: Hiển thị tổng phần trăm boost hiện tại của người chơi.
--   `%horizonboost_time%`, `%horizonboost_remaining%`, `%horizonboost_time_left%`: Hiển thị thời gian boost còn lại dài nhất tính bằng giây.
--   `%horizonboost_time_formatted%`, `%horizonboost_remaining_formatted%`: Hiển thị thời gian boost còn lại dài nhất được định dạng (ví dụ: "1h 30p", "45 phút 10s").
--   `%horizonboost_list%`, `%horizonboost_summary%`: Liệt kê tóm tắt các boost đang hoạt động của người chơi.
--   `%horizonboost_count%`, `%horizonboost_amount%`: Hiển thị số lượng boost đang hoạt động.
--   `%horizonboost_status%`, `%horizonboost_has_boost%`: Trả về "yes" nếu người chơi có boost, ngược lại trả về "no".
--   `%horizonboost_percent_raw%`: Hiển thị tổng phần trăm boost dưới dạng số nguyên (không có ký hiệu %).
--   `%horizonboost_top_percent%`: Hiển thị phần trăm của boost cao nhất đang hoạt động.
--   `%horizonboost_top_type%`: Hiển thị loại của boost có phần trăm cao nhất.
+-   `%horizonboost_total%`, `%horizonboost_percent%`, `%horizonboost_total_percent%`: Displays the player's current total boost percentage.
+-   `%horizonboost_time%`, `%horizonboost_remaining%`, `%horizonboost_time_left%`: Displays the longest remaining boost time in seconds.
+-   `%horizonboost_time_formatted%`, `%horizonboost_remaining_formatted%`: Displays the longest remaining boost time formatted (e.g., "1h 30m", "45m 10s").
+-   `%horizonboost_list%`, `%horizonboost_summary%`: Lists a summary of the player's active boosts.
+-   `%horizonboost_count%`, `%horizonboost_amount%`: Displays the number of active boosts.
+-   `%horizonboost_status%`, `%horizonboost_has_boost%`: Returns "yes" if the player has a boost, otherwise "no".
+-   `%horizonboost_percent_raw%`: Displays the total boost percentage as an integer (without the % symbol).
+-   `%horizonboost_top_percent%`: Displays the percentage of the highest active boost.
+-   `%horizonboost_top_type%`: Displays the type of the boost with the highest percentage.
